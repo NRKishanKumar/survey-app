@@ -47,9 +47,5 @@
   "Survey": {
     "dataSource": "mongoDs",
     "public": true
-  },
-  "Answer": {
-    "dataSource": "mongoDs",
-    "public": true
   }
 }

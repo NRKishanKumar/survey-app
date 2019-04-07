@@ -1,0 +1,22 @@
+{
+  "name": "review-survey",
+  "description": "review-surveys application",
+  "main": "server/server.js",
+  "authors": [
+    "Kishan Kumar NR <kishan.93k@gmail.com>"
+  ],
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/NRKishanKumar/survey-app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
+    "angular-bootstrap": "^2.5.0"
+  }
+}

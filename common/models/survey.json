@@ -8,7 +8,7 @@
   "properties": {
     "categoryId": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "survey": {
       "type": "array",

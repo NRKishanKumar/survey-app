@@ -148,7 +148,7 @@ angular
     $scope.surveys = [];
     $scope.surveyForm = "";
     $scope.pageSize = 5;
-      $scope.isDisabled = false;
+      $scope.isDisabled = true;
       $scope.surveys = [];
       $scope.pageReferralIndex = 0;
 

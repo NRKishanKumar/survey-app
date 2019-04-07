@@ -1,0 +1,38 @@
+{
+  "name": "survey-review-app",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node .",
+    "posttest": "npm run lint"
+  },
+  "dependencies": {
+    "async": "^2.6.2",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "helmet": "^3.15.0",
+    "loopback": "^3.0.0",
+    "loopback-boot": "^3.1.1",
+    "loopback-component-explorer": "^6.3.1",
+    "loopback-connector-mongodb": "^3.9.2",
+    "serve-favicon": "^2.0.1",
+    "strong-error-handler": "^3.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^2.13.1",
+    "eslint-config-loopback": "^4.0.0"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "bugs": {
+    "url": "https://github.com/NRKishanKumar/survey-app/issues"
+  },
+  "license": "UNLICENSED",
+  "description": "survey application"
+}

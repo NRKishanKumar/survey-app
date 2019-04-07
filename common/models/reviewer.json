@@ -22,11 +22,6 @@
       "type": "hasMany",
       "model": "Reviewer",
       "foreignKey": ""
-    },
-    "answers": {
-      "type": "hasMany",
-      "model": "Answer",
-      "foreignKey": "publisherId"
     }
   },
   "acls": [

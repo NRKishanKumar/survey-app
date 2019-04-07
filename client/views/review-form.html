@@ -31,22 +31,29 @@
           <para1 style="text-align: left">{{pageReferralIndex + $index + 1}}</para1>
           <label>{{question.question}}</label>
           <div class="widthNone marginLeft50">
-            <input  type="radio" ng-model="question.answer" value="{{true}}"><para1>Yes</para1>
-            <input  type="radio" ng-model="question.answer" value="{{false}}"><para1>No</para1>
+            <input  name="{{question.question}}" type="radio" ng-model="question.answer" value="{{true}}" required>
+            <para1>Yes</para1>
+            <input  name="{{question.question}}" type="radio" ng-model="question.answer" value="{{false}}">
+            <para1>No</para1>
           </div>
         </div>
         <div ng-if="question.type === 'select'">
           <para1 style="text-align: left">{{pageReferralIndex + $index + 1}}</para1>
           <label>{{question.question}}</label>
           <div class="widthNone marginLeft50" ng-repeat="opt in question.options track by $index">
-            <input type="radio" ng-model="question.answer" value="{{opt}}"><para1>{{question.options[$index]}}</para1>
+            <input type="radio" name="{{question.question}}" ng-model="question.answer" value="{{opt}}" required>
+            <para1>{{question.options[$index]}}</para1>
           </div>
         </div>
         <div ng-if="question.type === 'array'">
           <para1 style="text-align: left">{{pageReferralIndex + $index + 1}}</para1>
           <label>{{question.question}}</label>
           <div class="widthNone marginLeft50" ng-repeat="opt in question.options track by $index">
-            <input type="checkbox" ng-model="isChecked" ng-change="addRemoveAns($parent.$index, $index, opt, isChecked)" value="{{opt}}"><para1>{{question.options[$index]}}</para1>
+            <input type="checkbox" ng-model="isChecked"
+                   name="{{question.question}}"
+                   ng-checked="!!question.answer.includes(opt)"
+                   ng-change="addRemoveAns($parent.$index, $index, opt, isChecked)"
+                   value="{{opt}}" required><para1>{{question.options[$index]}}</para1>
           </div>
         </div>
       </div>
@@ -56,8 +63,8 @@
                                on-page-change="myCurrentPage(newPageNumber, oldPageNumber)">
       </dir-pagination-controls>
 
-      <div class="form-group">
-        <label>Survey Rating</label>
+      <div class="form-group text-center">
+        <label>Survey Experience</label>
         <input type="radio" ng-model="review.rating" value="1">1&#9733;
         <input type="radio" ng-model="review.rating" value="2">2&#9733;
         <input type="radio" ng-model="review.rating" value="3">3&#9733;
@@ -65,20 +72,7 @@
         <input type="radio" ng-model="review.rating" value="5">5&#9733;
       </div>
 
-      <div ng-show="false" class="form-group">
-        <label>Coffee shop name</label>
-        <select
-            ng-disabled="isDisabled"
-            ng-model="selectedShop"
-            ng-options="shop as shop.name for shop in coffeeShops"></select>
-      </div>
-
-      <div ng-show="false" class="form-group">
-        <label>Comments</label>
-        <textarea ng-model="review.comments"></textarea>
-      </div>
-
-      <div class="actions">
+      <div class="actions text-center">
         <label></label>
         <button>{{action}} review</button>
       </div>

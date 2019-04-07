@@ -65,7 +65,7 @@ angular
         url: '/sign-up/success',
         templateUrl: 'views/sign-up-success.html'
       });
-    $urlRouterProvider.otherwise('all-reviews');
+    $urlRouterProvider.otherwise('sign-up');
   }])
   .run(['$rootScope', '$state', 'LoopBackAuth', 'AuthService', function($rootScope, $state, LoopBackAuth, AuthService) {
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams) {

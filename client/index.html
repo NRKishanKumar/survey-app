@@ -9,7 +9,7 @@
   <body>
     <header>
       <h1>Surveys form</h1>
-      <h2 ng-show="currentUser">Hello {{currentUser.email}}</h2>
+      <h2 ng-show="currentUser">Hello {{currentUser.email}}, you have logged in as a {{currentUser.role || 'user'}}.</h2>
       <nav>
         <ul>
           <li>

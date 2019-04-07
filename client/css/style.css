@@ -50,8 +50,16 @@ p {
   margin-left: 42%;
 }
 
+.footerCustomBorder {
+  border-bottom: 1px solid #dee2e6;
+}
+
 .paginateFooter {
   display: inherit;
+  text-align: center;
+}
+
+.text-center {
   text-align: center;
 }
 

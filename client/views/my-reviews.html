@@ -4,7 +4,7 @@
           ng-disabled="isDisabled"
           ng-model="selectedCategory"
           ng-options="category as category.name for category in categories" ng-change="filterSurvey(selectedCategory)"></select>
-  <article ng-repeat="r in reviews.slice().reverse()">
+  <article dir-paginate="r in reviews.slice().reverse() | itemsPerPage: 5"  pagination-id="myreviews">
     <header class="row col-md-8">
       <h1>{{r.date | date}} | {{r.category}}</h1>
       <h1 class="col-md-4">{{r.rating}}&#9733; {{r.reviewer.email}}</h1>
@@ -18,4 +18,6 @@
       <button a ui-sref="delete-review({ id: r.id })">Delete</button>
     </div>
   </article>
+  <dir-pagination-controls auto-hide="true" pagination-id="myreviews">
+  </dir-pagination-controls>
 </section>
