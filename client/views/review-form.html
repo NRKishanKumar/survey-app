@@ -1,0 +1,87 @@
+<section>
+  <form name="form" ng-submit="submitForm()">
+    <fieldset>
+      <legend>{{action}} review for
+        <select
+          ng-disabled="isDisabled"
+          ng-model="selectedCategory"
+          ng-options="category as category.name for category in categories" ng-change="filterSurvey(selectedCategory)"></select>
+      </legend>
+
+      <!--<div class="form-group">-->
+        <!--<label>Select Category</label>-->
+
+      <!--</div>-->
+
+
+      <div class="form-group" style="text-align: center">
+        <h1>{{selectedCategory.name + ' survey'}}</h1>
+      </div>
+
+      <div class="form-group"
+           dir-paginate="question in surveyForm.survey | itemsPerPage: pageSize"  pagination-id="myReviewForm">
+        <div ng-if="question.type === 'string'">
+          <para1 style="text-align: left">{{pageReferralIndex + $index + 1}}</para1>
+          <label>{{question.question}}</label>
+          <div class="widthNone marginLeft50">
+            <input type="text" ng-model="question.answer">
+          </div>
+        </div>
+        <div ng-if="question.type === 'boolean'">
+          <para1 style="text-align: left">{{pageReferralIndex + $index + 1}}</para1>
+          <label>{{question.question}}</label>
+          <div class="widthNone marginLeft50">
+            <input  type="radio" ng-model="question.answer" value="{{true}}"><para1>Yes</para1>
+            <input  type="radio" ng-model="question.answer" value="{{false}}"><para1>No</para1>
+          </div>
+        </div>
+        <div ng-if="question.type === 'select'">
+          <para1 style="text-align: left">{{pageReferralIndex + $index + 1}}</para1>
+          <label>{{question.question}}</label>
+          <div class="widthNone marginLeft50" ng-repeat="opt in question.options track by $index">
+            <input type="radio" ng-model="question.answer" value="{{opt}}"><para1>{{question.options[$index]}}</para1>
+          </div>
+        </div>
+        <div ng-if="question.type === 'array'">
+          <para1 style="text-align: left">{{pageReferralIndex + $index + 1}}</para1>
+          <label>{{question.question}}</label>
+          <div class="widthNone marginLeft50" ng-repeat="opt in question.options track by $index">
+            <input type="checkbox" ng-model="isChecked" ng-change="addRemoveAns($parent.$index, $index, opt, isChecked)" value="{{opt}}"><para1>{{question.options[$index]}}</para1>
+          </div>
+        </div>
+      </div>
+
+      <dir-pagination-controls ng-if="surveyForm"
+                               pagination-id="myReviewForm"
+                               on-page-change="myCurrentPage(newPageNumber, oldPageNumber)">
+      </dir-pagination-controls>
+
+      <div class="form-group">
+        <label>Survey Rating</label>
+        <input type="radio" ng-model="review.rating" value="1">1&#9733;
+        <input type="radio" ng-model="review.rating" value="2">2&#9733;
+        <input type="radio" ng-model="review.rating" value="3">3&#9733;
+        <input type="radio" ng-model="review.rating" value="4">4&#9733;
+        <input type="radio" ng-model="review.rating" value="5">5&#9733;
+      </div>
+
+      <div ng-show="false" class="form-group">
+        <label>Coffee shop name</label>
+        <select
+            ng-disabled="isDisabled"
+            ng-model="selectedShop"
+            ng-options="shop as shop.name for shop in coffeeShops"></select>
+      </div>
+
+      <div ng-show="false" class="form-group">
+        <label>Comments</label>
+        <textarea ng-model="review.comments"></textarea>
+      </div>
+
+      <div class="actions">
+        <label></label>
+        <button>{{action}} review</button>
+      </div>
+    </fieldset>
+  </form>
+<section>
